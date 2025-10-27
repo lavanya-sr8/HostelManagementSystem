@@ -160,7 +160,7 @@ window.location.href ="studentdashboard.php";
   <body>
     <div class="Nav" id="Nav1">
       <div class="NavbarContainer">
-        <img src="..\images\psglogo.png" alt="assam" class="NavLogo" onclick="rtohome()">
+        <img src="..\images\psglogo.png" alt="PSG logo" class="NavLogo" onclick="rtohome()">
         <div class="MobileIcon">
         <i class="fa fa-bars"></i>
         </div>

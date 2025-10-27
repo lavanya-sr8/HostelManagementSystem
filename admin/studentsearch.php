@@ -24,38 +24,53 @@
 }
 
 .search_box{
-	background: #643fef;
-	/* position: relative; */
-  height: 80px;
-	padding: 15px;
-	border-radius: 50px;
-	display: flex;
+  background: #3498db;
+  padding: 10px 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+
 }
 
 .search_box .search_btn .btn{
-	width: 50px;
-	height: 50px;
-	border-radius: 50%;
-	background: #7a5cf0;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	color: #fff;
-	margin-left: 15px;
-	cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  background: #01bf71;
+  color: #fff;
+  padding: 12px 20px;
+  margin-left: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+
 }
+
+.search_box .search_btn .btn:hover {
+  background: #019e60;
+}
+
 
 .search_box .input_search {
-	outline: none;
-	border: 0;
-	background: #7a5cf0;
-	border-radius: 50px;
-	padding: 15px 20px;
-	width: 300px;
-	height: 50px;
-	color: #fff;
-
+  outline: none;
+  border: none;
+  background: #fff;
+  border-radius: 8px;
+  padding: 12px 16px;
+  width: 280px;
+  height: 45px;
+  color: #333;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  transition: box-shadow 0.2s ease-in-out;
 }
+
+.search_box .input_search:focus {
+  box-shadow: 0 0 0 2px #01bf71;
+}
+
+
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
@@ -63,7 +78,8 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 ::placeholder {
-  color: #fff;
+  /* color: #fff; */
+  color: #aaa;
 }
 
 ::-webkit-input-placeholder {
@@ -183,15 +199,22 @@ td:before {
 <?php include 'header.php';?>
 <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
 
-<form class="" action="studentsearch.php" method="post">
-<div class="wrapper">
-	<div class="search_box">
-		<input type="text" name="regno" id="regno" class="input_search" placeholder="Enter student regno" pattern="[0-9]{2}[A-Z]{3}[0-9]{4}">
-    <div class="search_btn"><input class="btn"  type="submit" name="submit" value="find"> </div>
-<!--
-    <i type="submit" name="submit" class="fas fa-search"></i> -->
+<form action="studentsearch.php" method="post">
+  <div class="wrapper">
+    <div class="search_box">
+      <input
+        type="text"
+        name="regno"
+        id="regno"
+        class="input_search"
+        placeholder="Enter student regno"
+        pattern="[0-9]{2}([A-Za-z]{1}[0-9]{3}|[A-Za-z]{2}[0-9]{2,3})$"
+      />
+      <div class="search_btn">
+        <input class="btn" type="submit" name="submit" value="Find" />
+      </div>
+    </div>
   </div>
-</div>
 </form>
 
 <table>
