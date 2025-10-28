@@ -31,12 +31,16 @@
      $confirmpassword=$_POST['confirmpassword'];
      $gender=$_POST['gender'];
      $passwordregex="/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,16}$/";
+     $emailregex = "/^[A-Za-z0-9._%+-]+@psgtech\.ac\.in$/";
+
 
 
    $nameregex="/^[a-z A-Z]*$/";
    if(!preg_match($nameregex, $name)){
        $errmsg="*Name should contain only letters and spaces";
-   }
+   }else if (!preg_match($emailregex, $email)) {
+    $errmsg = "*Email must end with @psgtech.ac.in";
+}
      else if($password!=$confirmpassword){
      $errmsg="*Password and confirm password are not same";
      }
